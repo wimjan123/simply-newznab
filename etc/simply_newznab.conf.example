@@ -1,0 +1,19 @@
+#CHANGE IF NEEDED 
+TZ=Europe/Amsterdam
+NNUSER=svnuser
+NNPASS=svnpw
+
+
+DB_TYPE=mysql
+DB_HOST=database
+DB_PORT=3306
+DB_USER=newznab
+DB_PASSWORD=newznab
+DB_NAME=newznab
+
+#CHANGE IF NEEDED
+NNTP_USERNAME=nnuser
+NNTP_PASSWORD=nnpw
+NNTP_SERVER=server.com
+NNTP_PORT=569
+NNTP_SSLENABLED=true
