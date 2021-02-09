@@ -2,7 +2,7 @@ version: '2'
 services:
 
   database:
-    image: thewillonline/nzedb-mariadb:latest
+    image: thewillonline/newznab-mariadb:latest
     restart: unless-stopped
     volumes:
       - $PWD/data/var_lib_mysql:/var/lib/mysql
@@ -17,7 +17,7 @@ services:
       - "3306"
 
   nzedb:
-    image: thewillonline/nzedb:latest
+    image: thewillonline/newznab:latest
     restart: unless-stopped
     ports:
       - 8800:80
