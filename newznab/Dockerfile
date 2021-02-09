@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 MAINTAINER thewillonline
 
-# Configure Timezone
 ENV TZ 'Europe/Amsterdam'
 RUN echo $TZ > /etc/timezone && \
 apt-get update && apt-get install -y tzdata && \

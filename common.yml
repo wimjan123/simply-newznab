@@ -37,7 +37,7 @@ services:
       - 8880:80
 
   sphinxsearch:
-    image: thewillonline/sphinxsearch:latest
+    image: thewillonline/newznab-sphinxsearch:latest
     restart: unless-stopped
     volumes:
       - $PWD/data/sphinx/:/opt/sphinx/index
