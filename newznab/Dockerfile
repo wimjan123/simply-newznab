@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 MAINTAINER thewillonline
+RUN DEBIAN_FRONTEND="noninteractive"
 
 ENV TZ 'Europe/Amsterdam' \
     NNUSER="svnplus" \
