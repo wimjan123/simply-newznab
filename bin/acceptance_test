@@ -1,0 +1,87 @@
+#!/bin/bash -xv
+set -e
+
+pre_test_setup() {
+  rm -rf venv data
+}
+
+create_simply_nzedb_conf() {
+  cat << EOF > etc/simply_nzedb.conf
+NNTP_USERNAME=""
+NNTP_PASSWORD=""
+NNTP_SERVER=
+NNTP_PORT=119
+NNTP_SSLENABLED=false
+
+DB_SYSTEM=mysql
+DB_HOST=database
+DB_PORT=3306
+DB_SOCKET=""
+DB_USER=nzedb
+DB_PASSWORD=nzedb
+DB_NAME=nzedb
+
+IRC_USERNAME=simply_nzedb_test
+IRC_SERVER=irc.idontexist.com
+IRC_PORT=6667
+IRC_TLS=false
+IRC_PASSWORD=""
+
+NZEDB_ADMIN_USERNAME=nzedb
+NZEDB_ADMIN_PASSWORD=nzedb
+NZEDB_ADMIN_EMAIL=nzedb@localhost.com
+EOF
+}
+
+step1_cli_setup() {
+  bin/build_virtualenv
+  bin/build_nzedb
+  create_simply_nzedb_conf
+  bin/setup_data_dir
+  bin/start_nzedb
+}
+
+step1_test() {
+  # nzedb is up
+  venv/bin/http --session test --check-status :8800/install/
+
+  # adminer is up - needs to be poked twice to pass
+  # TODO: Figure out why it always fails on the first poke
+  # venv/bin/http :8880/
+  # venv/bin/http --check-status :8880/
+}
+
+step2_web_setup() {
+  source etc/simply_nzedb.conf
+  source bin/nzedb_lib
+  web_setup
+}
+
+step3_sane_defaults() {
+  bin/apply_defaults
+}
+
+step4_verification() {
+  # TODO: -T needed until https://github.com/docker/compose/issues/3379 is fixed
+  venv/bin/docker-compose exec -T nzedb php update_binaries.php
+  #venv/bin/docker-compose exec -T nzedb php update_releases.php 1 true
+  venv/bin/docker-compose exec -T nzedb php nix/multiprocessing/releases.php
+}
+
+post_test_cleanup() {
+  bin/stop_nzedb
+}
+
+# Main
+pre_test_setup
+
+step1_cli_setup
+step1_test
+
+step2_web_setup
+
+step3_sane_defaults
+
+step4_verification
+
+post_test_cleanup

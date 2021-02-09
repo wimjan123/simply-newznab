@@ -1,0 +1,3 @@
+#!/bin/bash
+# Fucking docker! https://github.com/moby/moby/issues/30421
+venv/bin/docker-compose exec nzedb script -c "export TERM=xterm && tmux -u attach -t nZEDb" /dev/null

@@ -1,0 +1,43 @@
+version: '2'
+services:
+
+  database:
+    extends:
+      file: common.yml
+      service: database
+
+  nzedb:
+    extends:
+      file: common.yml
+      service: nzedb
+    links:
+      - database
+      - redis
+    depends_on:
+      - database
+      - redis
+
+  adminer:
+    extends:
+      file: common.yml
+      service: adminer
+    links:
+      - database:db
+    depends_on:
+      - database
+
+  redis:
+    extends:
+      file: common.yml
+      service: redis
+
+  sphinxsearch:
+    extends:
+      file: common.yml
+      service: sphinxsearch
+    links:
+      - database
+      - nzedb
+    depends_on:
+      - database
+      - nzedb
