@@ -4,7 +4,7 @@
 FROM alpine:3.12
 
 # https://sphinxsearch.com/blog/
-ENV SPHINX_VERSION 3.3.1-b72d67b
+ENV SPHINX_VERSION 2.3.2
 
 # install dependencies
 RUN apk add --no-cache mariadb-connector-c-dev \
