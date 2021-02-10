@@ -7,7 +7,7 @@ services:
       service: database
     build: mariadb
 
-  nzedb:
+  newznab:
     extends:
       file: common.yml
       service: nzedb
@@ -39,7 +39,7 @@ services:
       service: sphinxsearch
     links:
       - database
-      - nzedb
+      - newznab
     depends_on:
       - database
-      - nzedb
+      - newznab
