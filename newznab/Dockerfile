@@ -31,27 +31,27 @@ RUN mkdir /rarinstall && \
   rm /rarinstall -r
 
 RUN mkdir /var/www/newznab && \
-    mkdir /var/www/newznab/htdocs && \
+    mkdir /var/www/newznab && \
     mkdir /var/www/newznab/logs
 
-RUN svn export --no-auth-cache --force --username svnplus --password svnplu5 svn://svn.newznab.com/nn/branches/nnplus /var/www/newznab/htdocs/
+RUN svn export --no-auth-cache --force --username svnplus --password svnplu5 svn://svn.newznab.com/nn/branches/nnplus /var/www/newznab/
 
 
-RUN rm /var/www/newznab/htdocs/*.txt && \
-    rm -rf /var/www/newznab/htdocs/www/install && \
-    rm -rf /var/www/newznab/htdocs/www/lib/smarty/templates_c/*
+RUN rm /var/www/newznab/*.txt && \
+    rm -rf /var/www/newznab/www/install && \
+    rm -rf /var/www/newznab/www/lib/smarty/templates_c/*
 
-COPY config.php /var/www/htdocs/newznab/www/config.php
-RUN chmod 777 /var/www/htdocs/newznab/www/config.php
+COPY config.php /var/www/newznab/www/config.php
+RUN chmod 777 /var/www/newznab/www/config.php
 
-COPY config.php /var/www/newznab/htdocs/misc/update_scripts/
-RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
+COPY config.php /var/www/newznab/misc/update_scripts/
+RUN chmod 777 /var/www/newznab/misc/update_scripts/
 #
-# COPY automated.config.php /var/www/htdocs/newznab/www/automated.config.php
-# RUN chmod 777 /var/www/htdocs/newznab/www/automated.config.php
+# COPY automated.config.php /var/www/newznab/www/automated.config.php
+# RUN chmod 777 /var/www/newznab/www/automated.config.php
 #
-# COPY automated.config.php /var/www/newznab/htdocs/misc/update_scripts/
-# RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
+# COPY automated.config.php /var/www/newznab/misc/update_scripts/
+# RUN chmod 777 /var/www/newznab/misc/update_scripts/
 
 RUN cd /var/www/newznab/ && \
     php misc/update_scripts/update_database_version.php && \
@@ -66,15 +66,15 @@ RUN systemctl restart memcached && \
 RUN chmod +x /var/www/newznab/svn.sh && \
     ./var/www/newznab/svn.sh
 
-RUN chmod 777 /var/www/newznab/htdocs/www/lib/smarty/templates_c && \
-    chmod 777 /var/www/newznab/htdocs/www/covers/movies && \
-    chmod 777 /var/www/newznab/htdocs/www/covers/anime && \
-    chmod 777 /var/www/newznab/htdocs/www/covers/music && \
-    chmod 777 /var/www/newznab/htdocs/www/covers/tv && \
-    chmod 777 /var/www/newznab/htdocs/www && \
-    chmod 777 /var/www/newznab/htdocs/www/install && \
-    chmod 777 /var/www/newznab/htdocs/db/cache && \
-    chmod -R 777 /var/www/newznab/htdocs/nzbfiles/
+RUN chmod 777 /var/www/newznab/www/lib/smarty/templates_c && \
+    chmod 777 /var/www/newznab/www/covers/movies && \
+    chmod 777 /var/www/newznab/www/covers/anime && \
+    chmod 777 /var/www/newznab/www/covers/music && \
+    chmod 777 /var/www/newznab/www/covers/tv && \
+    chmod 777 /var/www/newznab/www && \
+    chmod 777 /var/www/newznab/www/install && \
+    chmod 777 /var/www/newznab/db/cache && \
+    chmod -R 777 /var/www/newznab/nzbfiles/
 
 
 RUN sed -ri 's/(max_execution_time =) ([0-9]+)/\1 120/' /etc/php/7.4/fpm/php.ini && \
