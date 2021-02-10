@@ -34,7 +34,7 @@ RUN mkdir /var/www/newznab && \
     mkdir /var/www/newznab/htdocs && \
     mkdir /var/www/newznab/logs
 
-RUN svn export --no-auth-cache --force --username svnplus --password svnplus5 http://svn.newznab.com/nn/branches/nnplus /var/www/newznab/htdocs/
+RUN svn export --no-auth-cache --force --username svnplus --password svnplus5 https://svn.newznab.com/nn/branches/nnplus /var/www/newznab/htdocs/
 
 RUN rm /var/www/newznab/htdocs/*.txt && \
     rm -rf /var/www/newznab/htdocs/www/install && \
