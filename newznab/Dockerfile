@@ -17,7 +17,7 @@ RUN apt update -y && \
     apt upgrade -y && \
     apt install -y \
     ssh screen apache2 php php-fpm && \
-    apt install - y \
+    apt install -y \
     php-pear php-gd php-mysql php-redis php-curl php-json php-mbstring wget lame \
     mediainfo subversion ffmpeg redis
 
