@@ -26,7 +26,6 @@ services:
     depends_on:
       - database
 
-
   sphinxsearch:
     extends:
       file: common.yml
