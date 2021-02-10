@@ -6,13 +6,6 @@ ENV TZ='Europe/Amsterdam' \
     NNUSER="svnplus" \
     NNPASS="svnplu5"
 
-RUN echo $TZ > /etc/timezone && \
-    apt-get update && apt-get install -y tzdata && \
-    rm /etc/localtime && \
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata && \
-    apt-get clean
-
 
 
 FROM ubuntu:20.04
@@ -22,6 +15,15 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Add Variables
 ENV NNUSER="svnplus" \
     NNPASS="svnplu5"
+
+RUN echo $TZ > /etc/timezone && \
+    apt-get update && apt-get install -y tzdata && \
+    rm /etc/localtime && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean
+
+
 
 # Install required packages
 RUN apt-get -y update && \
