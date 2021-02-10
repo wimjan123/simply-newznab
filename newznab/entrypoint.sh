@@ -33,6 +33,10 @@ if [ ! -f /var/www/newznab/www/covers/preview ]; then
 mkdir -p /var/www/newznab/www/covers/preview
 chmod  -R 777 /var/www/newznab/www/covers/preview
 fi
+if [ ! -f chmod -R 777 /var/www/newznab/nzbfiles/ ]; then
+mkdir -p chmod -R 777 /var/www/newznab/nzbfiles/
+chmod  -R 777 chmod -R 777 /var/www/newznab/nzbfiles/
+fi
 
 # Edit config file DataBase settings
 sed -i "s/'mysql'/'$DB_TYPE'/" /var/www/newznab/www/config.php
