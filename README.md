@@ -4,6 +4,7 @@
 # Simply nZEDb
 NEEDS UPDATING!
 
+This is a Simply-nZEDb fork for Newznab. With this you you will be able (in the future) to easily run newznab inside docker containers.
 
 
 Set up your own nZEDb usenet indexer in no time at all.
