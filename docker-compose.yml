@@ -1,1 +1,36 @@
-je kk ma
+version: '2'
+services:
+
+  database:
+    extends:
+      file: common.yml
+      service: database
+
+  newznab:
+    extends:
+      file: common.yml
+      service: nzedb
+    links:
+      - database
+    depends_on:
+      - database
+
+  adminer:
+    extends:
+      file: common.yml
+      service: adminer
+    links:
+      - database:db
+    depends_on:
+      - database
+
+  sphinxsearch:
+    extends:
+      file: common.yml
+      service: sphinxsearch
+    links:
+      - database
+      - newznab
+    depends_on:
+      - database
+      - newznab
