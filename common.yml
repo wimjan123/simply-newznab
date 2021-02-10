@@ -9,10 +9,10 @@ services:
       - $PWD/data/etc_mysql_conf.d:/etc/mysql/conf.d
       - $PWD/data/mysql_user:/mysql_user
     environment:
-      - MYSQL_ROOT_PASSWORD=nzedb
-      - MYSQL_DATABASE=nzedb
-      - MYSQL_USER=nzedb
-      - MYSQL_PASSWORD=nzedb
+      - MYSQL_ROOT_PASSWORD=newznab
+      - MYSQL_DATABASE=newznab
+      - MYSQL_USER=newznab
+      - MYSQL_PASSWORD=newznab
     expose:
       - "3306"
 
