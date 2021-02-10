@@ -26,9 +26,6 @@ services:
     volumes:
       - $PWD/data/nzb:/var/www/newznab/nzbfiles
       - $PWD/data/covers:/var/www/newznab/www/covers
-      - $PWD/data/covers:/var/www/nZEDb/resources/covers/
-      - $PWD/data/nzb:/var/www/nZEDb/resources/nzb/
-      - $PWD/data/tmp:/var/www/nZEDb/resources/tmp/unrar/
 
   adminer:
     image: clue/adminer
