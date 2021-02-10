@@ -22,12 +22,12 @@ RUN apt-get -y update && \
 
 #Install Rar & Unrar 6
 RUN mkdir /rarinstall && \
-  cd /rarinstall && \
-  wget https://www.rarlab.com/rar/rarlinux-x64-6.0.0.tar.gz && \
-  tar xfv rarlinux* && \
-  cd rar && \
-  cp unrar /usr/bin/ && cp rar /usr/bin && \
-  rm /rarinstall -r
+    cd /rarinstall && \
+    wget https://www.rarlab.com/rar/rarlinux-x64-6.0.0.tar.gz && \
+    tar xfv rarlinux* && \
+    cd rar && \
+    cp unrar /usr/bin/ && cp rar /usr/bin && \
+    rm /rarinstall -r
 
 
 # Creating Newznab Folders from SVN
