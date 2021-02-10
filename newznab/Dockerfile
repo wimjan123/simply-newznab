@@ -6,6 +6,13 @@ ENV TZ='Europe/Amsterdam' \
     NNUSER="svnplus" \
     NNPASS="svnplu5"
 
+RUN echo $TZ > /etc/timezone && \
+    apt-get update && apt-get install -y tzdata && \
+    rm /etc/localtime && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean
+
 RUN apt update -y && \
     apt upgrade -y && \
     apt install -y \
