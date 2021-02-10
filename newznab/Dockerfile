@@ -84,8 +84,8 @@ RUN sed -ri 's/(max_execution_time =) ([0-9]+)/\1 120/' /etc/php/7.4/fpm/php.ini
 RUN a2enmod proxy_fcgi setenvif && \
 a2enconf php7.4-fpm && \
 a2enmod rewrite && \
-service restart php7.4-fpm && \
-service restart apache2
+service php7.4-fpm restart && \
+service apache2 restart
 
 
 COPY entrypoint.sh /entrypoint.sh
