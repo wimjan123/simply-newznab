@@ -14,10 +14,10 @@ services:
     build: nzedb
     links:
       - database
-      - redis
+      # - redis
     depends_on:
       - database
-      - redis
+      # - redis
 
   adminer:
     extends:
@@ -28,10 +28,10 @@ services:
     depends_on:
       - database
 
-  redis:
-    extends:
-      file: common.yml
-      service: redis
+  # # redis:
+  #   extends:
+  #     file: common.yml
+  #     service: redis
 
   sphinxsearch:
     extends:
