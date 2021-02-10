@@ -1,20 +1,11 @@
 FROM ubuntu:20.04
-MAINTAINER thewillonline
-RUN DEBIAN_FRONTEND="noninteractive"
-
-ENV TZ='Europe/Amsterdam' \
-    NNUSER="svnplus" \
-    NNPASS="svnplu5"
-
-
-
-FROM ubuntu:20.04
 MAINTAINER Fekhoo <fekhoo@fekhoo.net>
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Add Variables
 ENV NNUSER="svnplus" \
-    NNPASS="svnplu5"
+    NNPASS="svnplu5" \
+    TZ="Europe/Amsterdam"
 
 RUN echo $TZ > /etc/timezone && \
     apt-get update && apt-get install -y tzdata && \
