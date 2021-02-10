@@ -9,7 +9,7 @@ services:
   newznab:
     extends:
       file: common.yml
-      service: nzedb
+      service: newznab
     links:
       - database
     depends_on:
