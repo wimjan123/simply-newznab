@@ -6,7 +6,9 @@ NEEDS UPDATING!
 
 This is a Simply-nZEDb fork for Newznab. With this you you will be able (in the future) to easily run newznab, and other needed components such as for example a database, inside docker containers.
 
-Almost all is copied from https://github.com/slydetector/simply-nzedb. 
+Almost all is copied from https://github.com/slydetector/simply-nzedb.
+
+This is stil a WIP, since I still have a lot of stuff to edit.
 
 Set up your own nZEDb usenet indexer in no time at all.
 This is a docker based installation based on the super-slim alpine linux distro.
