@@ -36,9 +36,13 @@ RUN mkdir /var/www/newznab && \
 
 RUN svn export --no-auth-cache --force --username svnplus --password svnplu5 svn://svn.newznab.com/nn/branches/nnplus /var/www/newznab/htdocs/
 
+
 RUN rm /var/www/newznab/htdocs/*.txt && \
     rm -rf /var/www/newznab/htdocs/www/install && \
     rm -rf /var/www/newznab/htdocs/www/lib/smarty/templates_c/*
+
+COPY config.php /var/www/htdocs/newznab/www/config.php
+RUN chmod 777 /var/www/htdocs/newznab/www/config.php
 
 RUN cd /var/www/newznab/htdocs/misc/update_scripts && \
     php update_database_version.php && \
