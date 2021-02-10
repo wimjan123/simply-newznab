@@ -54,7 +54,7 @@ RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
 # RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
 
 RUN cd /var/www/newznab/htdocs/ && \
-    php /misc/update_scripts/update_database_version.php && \
+    php misc/update_scripts/update_database_version.php && \
     cd /var/www/newznab/htdocs
 
 COPY newznab.conf /etc/apache2/sites-available/newznab.conf
