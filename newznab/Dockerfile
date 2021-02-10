@@ -14,8 +14,6 @@ RUN echo $TZ > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-
-
 # Install required packages
 RUN apt-get -y update && \
     apt-get install -yq ssh screen tmux apache2 php php-fpm php-dev \
