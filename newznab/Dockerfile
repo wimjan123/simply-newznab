@@ -58,9 +58,9 @@ RUN chmod 777 /var/www/newznab/misc/update_scripts/
 
 COPY newznab.conf /etc/apache2/sites-available/newznab.conf
 
-RUN systemctl restart memcached && \
-    systemctl restart apache2 && \
-    systemctl restart php7.4-fpm
+RUN service restart memcached && \
+    service restart apache2 && \
+    service restart php7.4-fpm
 
 RUN chmod +x /var/www/newznab/svn.sh && \
     ./var/www/newznab/svn.sh
@@ -84,8 +84,8 @@ RUN sed -ri 's/(max_execution_time =) ([0-9]+)/\1 120/' /etc/php/7.4/fpm/php.ini
 RUN a2enmod proxy_fcgi setenvif && \
 a2enconf php7.4-fpm && \
 a2enmod rewrite && \
-systemctl restart php7.4-fpm && \
-systemctl restart apache2
+service restart php7.4-fpm && \
+service restart apache2
 
 
 COPY entrypoint.sh /entrypoint.sh
