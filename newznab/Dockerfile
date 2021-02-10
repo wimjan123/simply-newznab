@@ -50,6 +50,8 @@ RUN chmod 777 /var/www/newznab/www/config.php
 # Configure Apache for Newznab site
 COPY newznab.conf /etc/apache2/sites-available/newznab.conf
 
+RUN mkdir /var/www/newznab/logs/
+
 #Add newznab processing & Config script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
