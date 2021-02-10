@@ -44,6 +44,9 @@ RUN rm /var/www/newznab/htdocs/*.txt && \
 COPY config.php /var/www/htdocs/newznab/www/config.php
 RUN chmod 777 /var/www/htdocs/newznab/www/config.php
 
+COPY config.php /var/www/newznab/htdocs/misc/update_scripts/
+RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
+
 RUN cd /var/www/newznab/htdocs/misc/update_scripts && \
     php update_database_version.php && \
     cd /var/www/newznab/htdocs
