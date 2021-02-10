@@ -16,7 +16,7 @@ services:
     expose:
       - "3306"
 
-  nzedb:
+  newznab:
     image: thewillonline/newznab:latest
     restart: unless-stopped
     ports:
