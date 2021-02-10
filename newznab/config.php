@@ -4,7 +4,7 @@
 // Config you must change - updated by installer.
 //=========================
 define('DB_TYPE', 'mysql');
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'database');
 define('DB_PORT', 3306);
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'password');
