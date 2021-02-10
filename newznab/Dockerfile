@@ -58,9 +58,9 @@ RUN chmod 777 /var/www/newznab/misc/update_scripts/
 
 COPY newznab.conf /etc/apache2/sites-available/newznab.conf
 
-RUN service restart memcached && \
-    service restart apache2 && \
-    service restart php7.4-fpm
+RUN service memcached restart && \
+    service apache2 restart && \
+    service php7.4-fpm restart
 
 RUN chmod +x /var/www/newznab/svn.sh && \
     ./var/www/newznab/svn.sh
