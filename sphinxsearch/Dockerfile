@@ -21,7 +21,7 @@ RUN wget http://sphinxsearch.com/files/sphinx-3.0.1-7fec4f6-linux-amd64.tar.gz -
 	&& rm /tmp/sphinxsearch.tar.gz
 
 # point to sphinx binaries
-ENV PATH "${PATH}:/opt/sphinx/sphinx-3.3.1/bin"
+ENV PATH "${PATH}:/opt/sphinx/sphinx-3.0.1/bin"
 RUN indexer -v
 
 # redirect logs to stdout
