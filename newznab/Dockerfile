@@ -31,7 +31,6 @@ RUN mkdir /rarinstall && \
   rm /rarinstall -r
 
 RUN mkdir /var/www/newznab && \
-    mkdir /var/www/newznab && \
     mkdir /var/www/newznab/logs
 
 RUN svn export --no-auth-cache --force --username svnplus --password svnplu5 svn://svn.newznab.com/nn/branches/nnplus /var/www/newznab/
