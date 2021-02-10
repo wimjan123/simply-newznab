@@ -46,15 +46,15 @@ RUN chmod 777 /var/www/htdocs/newznab/www/config.php
 
 COPY config.php /var/www/newznab/htdocs/misc/update_scripts/
 RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
-# 
+#
 # COPY automated.config.php /var/www/htdocs/newznab/www/automated.config.php
 # RUN chmod 777 /var/www/htdocs/newznab/www/automated.config.php
 #
 # COPY automated.config.php /var/www/newznab/htdocs/misc/update_scripts/
 # RUN chmod 777 /var/www/newznab/htdocs/misc/update_scripts/
 
-RUN cd /var/www/newznab/htdocs/misc/update_scripts && \
-    php update_database_version.php && \
+RUN cd /var/www/newznab/htdocs/ && \
+    php /misc/update_scripts/update_database_version.php && \
     cd /var/www/newznab/htdocs
 
 COPY newznab.conf /etc/apache2/sites-available/newznab.conf
