@@ -20,7 +20,7 @@ services:
     image: thewillonline/newznab:latest
     restart: unless-stopped
     ports:
-      - 8869:80
+      - 8800:80
     env_file:
       - $PWD/etc/simply_newznab.conf
     volumes:
