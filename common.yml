@@ -35,20 +35,20 @@ services:
     ports:
       - 8880:80
 
-  sphinxsearch:
-    image: thewillonline/newznab-sphinxsearch:latest
-    restart: unless-stopped
-    volumes:
-      - $PWD/data/sphinx/:/opt/sphinx/index
-      - $PWD/data/sphinx.conf:/opt/sphinx/conf/sphinx.conf
-      - $PWD/data/sphinx/pid/:/var/run/sphinxsearch/
-      - $PWD/data/sphinx/logs/:/var/log/sphinxsearch/
-      - $PWD/data/sphinx/lib/:/var/lib/sphinxsearch/data
-      - $PWD/data/sphinxdata:/sphinxdata
-      - $PWD/data/sphinxbin/:/opt/sphinx/sphinx-3.0.3/bin/
-
-    ports:
-      - 127.0.0.1:36307:36307
+  # sphinxsearch:
+  #   image: thewillonline/newznab-sphinxsearch:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - $PWD/data/sphinx/:/opt/sphinx/index
+  #     - $PWD/data/sphinx.conf:/opt/sphinx/conf/sphinx.conf
+  #     - $PWD/data/sphinx/pid/:/var/run/sphinxsearch/
+  #     - $PWD/data/sphinx/logs/:/var/log/sphinxsearch/
+  #     - $PWD/data/sphinx/lib/:/var/lib/sphinxsearch/data
+  #     - $PWD/data/sphinxdata:/sphinxdata
+  #     - $PWD/data/sphinxbin/:/opt/sphinx/sphinx-3.0.3/bin/
+    # 
+    # ports:
+    #   - 127.0.0.1:36307:36307
 #      - 127.0.0.1:9312:9312
 #      - 127.0.0.1:9306:9306
   #
