@@ -24,13 +24,13 @@ services:
     depends_on:
       - database
 
-  sphinxsearch:
-    extends:
-      file: common.yml
-      service: sphinxsearch
-    links:
-      - database
-      - newznab
-    depends_on:
-      - database
-      - newznab
+  # sphinxsearch:
+  #   extends:
+  #     file: common.yml
+  #     service: sphinxsearch
+  #   links:
+  #     - database
+  #     - newznab
+  #   depends_on:
+  #     - database
+  #     - newznab
