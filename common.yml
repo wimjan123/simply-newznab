@@ -26,7 +26,7 @@ services:
     volumes:
       - $PWD/data/nzb:/var/www/newznab/nzbfiles
       - $PWD/data/covers:/var/www/newznab/www/covers
-      - $PWD/data/sphinx/lib:/sphinxdata
+      - $PWD/sphinxdata:/sphinxdata
 
   adminer:
     image: clue/adminer
