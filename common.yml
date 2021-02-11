@@ -26,9 +26,8 @@ services:
     volumes:
       - $PWD/data/nzb:/var/www/newznab/nzbfiles
       - $PWD/data/covers:/var/www/newznab/www/covers
-      - $PWD/data/sphinxdata:/sphinxdata
-      - $PWD/data/sphinxbin/:/sphinxbin/
-
+      - $PWD/data/sphinxdata:/var/www/newznab/db/sphinxdata
+      
   adminer:
     image: clue/adminer
     restart: unless-stopped
@@ -46,7 +45,7 @@ services:
   #     - $PWD/data/sphinx/lib/:/var/lib/sphinxsearch/data
   #     - $PWD/data/sphinxdata:/sphinxdata
   #     - $PWD/data/sphinxbin/:/opt/sphinx/sphinx-3.0.3/bin/
-    # 
+    #
     # ports:
     #   - 127.0.0.1:36307:36307
 #      - 127.0.0.1:9312:9312
