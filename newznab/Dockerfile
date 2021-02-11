@@ -81,6 +81,5 @@ RUN ln -sv /dev/stdout /opt/sphinx/log/searchd.log
 EXPOSE 36307
 
 VOLUME /opt/sphinx/conf
-VOLUME /opt/sphinx/sphinx-3.0.3/bin/
 
 ENTRYPOINT ["/entrypoint.sh"]
