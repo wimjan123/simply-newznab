@@ -66,6 +66,10 @@ ENV SPHINX_VERSION 3.0.3-facc3fb
 RUN mkdir -pv /opt/sphinx/log /opt/sphinx/index
 VOLUME /opt/sphinx/index
 
+RUN apt-get install -y \
+    default-libmysqlclient-dev \
+    libpq-dev \
+
 # http://sphinxsearch.com/files/sphinx-3.0.3-facc3fb-linux-amd64.tar.gz
 RUN wget http://sphinxsearch.com/files/sphinx-${SPHINX_VERSION}-linux-amd64.tar.gz -O /tmp/sphinxsearch.tar.gz
 RUN cd /opt/sphinx && tar -xf /tmp/sphinxsearch.tar.gz
