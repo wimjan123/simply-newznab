@@ -61,6 +61,8 @@ EXPOSE 80
 VOLUME /var/www/newznab/nzbfiles
 VOLUME /var/www/newznab/www/covers
 
+#Sphinx
+ENV SPHINX_VERSION 3.0.3-facc3fb
 RUN mkdir -pv /opt/sphinx/log /opt/sphinx/index
 VOLUME /opt/sphinx/index
 
