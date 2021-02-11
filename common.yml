@@ -27,7 +27,7 @@ services:
       - $PWD/data/nzb:/var/www/newznab/nzbfiles
       - $PWD/data/covers:/var/www/newznab/www/covers
       - $PWD/data/sphinxdata:/sphinxdata
-      - $PWD/data/sphinx/searchd:/sphinxsearch/searchd
+      - $PWD/data/sphinxbin/:/sphinxbin/
 
   adminer:
     image: clue/adminer
@@ -45,7 +45,7 @@ services:
       - $PWD/data/sphinx/logs/:/var/log/sphinxsearch/
       - $PWD/data/sphinx/lib/:/var/lib/sphinxsearch/data
       - $PWD/data/sphinxdata:/sphinxdata
-      - $PWD/data/sphinx/searchd:/opt/sphinx/sphinx-3.0.3/bin/searchd
+      - $PWD/data/sphinxbin/:/opt/sphinx/sphinx-3.0.3/bin/
 
     ports:
       - 127.0.0.1:36307:36307
